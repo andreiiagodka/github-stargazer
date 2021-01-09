@@ -11,7 +11,7 @@ class SearchForm extends Component {
     return (
       <Form inline>
         <Form.Control
-          className='col-md-3 mr-4'
+          className='col-md-9 mr-4'
           name='name'
           id='name'
           placeholder='Enter repository name, e.g. rubygarage/truemail'

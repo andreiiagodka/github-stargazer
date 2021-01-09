@@ -5,7 +5,8 @@ import {
   Route
 } from "react-router-dom";
 import {
-  Container
+  Container,
+  Col
 } from "react-bootstrap";
 
 import Home from './components/Home/Home';
@@ -27,8 +28,10 @@ class App extends Component {
     )
 
     return (
-      <Container fluid className='mt-2'>
-        {routes}
+      <Container fluid>
+        <Col md={{ span: 4, offset: 4 }}>
+          {routes}
+        </Col>
       </Container>
     )
   }
