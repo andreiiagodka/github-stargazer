@@ -2,16 +2,18 @@ import React, { Component } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import {
+  Container
+} from "react-bootstrap";
 
 import Home from './components/Home/Home';
 import Details from './components/Details/Details';
 
 class App extends Component {
   render() {
-    return (
+    let routes = (
       <Router>
         <Switch>
           <Route path='/details'>
@@ -22,6 +24,12 @@ class App extends Component {
           </Route>
         </Switch>
       </Router>
+    )
+
+    return (
+      <Container fluid className='mt-2'>
+        {routes}
+      </Container>
     )
   }
 }
