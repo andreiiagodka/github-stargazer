@@ -5,6 +5,9 @@ import {
   InputGroup,
   Button
 } from "react-bootstrap";
+import { connect } from 'react-redux';
+
+import * as actions from '../../../store/actions/index';
 
 class SearchForm extends Component {
   render() {
@@ -17,8 +20,8 @@ class SearchForm extends Component {
           placeholder='Enter repository name, e.g. rubygarage/truemail'
         />
         <Button 
-          type='submit'
           variant='outline-dark'
+          onClick={this.props.onSearchSubmit}
         >
           Add
         </Button>
@@ -27,4 +30,16 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm
+const mapStateToProps = state => {
+  return {
+    error: state.error
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSearchSubmit: () => dispatch(actions.searchStart())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchForm)
