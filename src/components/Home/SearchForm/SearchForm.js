@@ -12,17 +12,14 @@ import * as actions from '../../../store/actions/index';
 class SearchForm extends Component {
   render() {
     return (
-      <Form inline>
+      <Form inline onSubmit={this.props.handleSubmit}>
         <Form.Control
           className='col-md-9 mr-4'
           name='name'
           id='name'
           placeholder='Enter repository name, e.g. rubygarage/truemail'
         />
-        <Button 
-          variant='outline-dark'
-          onClick={this.props.onSearchSubmit}
-        >
+        <Button type='submit' variant='outline-dark'>
           Add
         </Button>
       </Form>
@@ -38,7 +35,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSearchSubmit: () => dispatch(actions.searchStart())
+    handleSubmit: (event) => dispatch(actions.searchRepository(event))
   }
 }
 

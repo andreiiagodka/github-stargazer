@@ -1,4 +1,5 @@
-import Firebase from 'firebase' 
+import Firebase from 'firebase';
+import axios from 'axios'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBEbxms7VS5GHHQe9l7EltA66TWBhaI6Yk',
@@ -7,6 +8,4 @@ const firebaseConfig = {
   projectId: 'github-stargazer-4e8a3'
 }
 
-const firebase = Firebase.initializeApp(firebaseConfig)
-
-export default firebase
+export const firebase = Firebase.initializeApp(firebaseConfig)

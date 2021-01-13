@@ -1,3 +1,3 @@
 export {
-  searchStart
+  searchRepository
 } from './searchForm';
