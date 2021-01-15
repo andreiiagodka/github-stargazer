@@ -7,7 +7,13 @@ export const searchRepository = name => {
   return dispatch => {
     axios.get('https://api.github.com/repos/' + name)
       .then(response => {
-        dispatch(searchSuccess(name, response.data.stargazers_count))
+        const newRepository = {
+          name: name,
+          stargazers_count: response.data.stargazers_count
+        }
+        firebase.database().ref('repositories').push().set(newRepository)
+        
+        dispatch(searchSuccess())
       })
       .catch(error => {
         dispatch(searchFail())
@@ -15,13 +21,7 @@ export const searchRepository = name => {
   }
 }
 
-export const searchSuccess = (name, stargazers_count) => {
-  const newRepository = {
-    name: name,
-    stargazers_count: stargazers_count
-  }
-  firebase.database().ref('repositories').set(newRepository)
-
+export const searchSuccess = () => {
   return {
     type: actionTypes.SEARCH_SUCCESS,
     success: true
