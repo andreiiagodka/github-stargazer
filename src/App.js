@@ -6,22 +6,27 @@ import {
 } from "react-router-dom";
 import {
   Container,
-  Col
+  Col,
+  Card
 } from "react-bootstrap";
 
-import Home from './components/Home/Home';
-import Details from './components/Details/Details';
+import Index from './containers/Index/Index';
+import Show from './containers/Show/Show';
+import New from './components/New/New';
 
 class App extends Component {
   render() {
     let routes = (
       <Router>
         <Switch>
-          <Route path='/details'>
-            <Details />
+          <Route path='/new'>
+            <New />
+          </Route>
+          <Route path='/show'>
+            <Show />
           </Route>
           <Route path='/'>
-            <Home />
+            <Index />
           </Route>
         </Switch>
       </Router>
@@ -29,8 +34,10 @@ class App extends Component {
 
     return (
       <Container fluid>
-        <Col md={{ span: 4, offset: 4 }}>
-          {routes}
+        <Col md={{ span: 6, offset: 3 }}>
+          <Card>
+            {routes}
+          </Card>
         </Col>
       </Container>
     )

@@ -1,3 +1,3 @@
 export {
   searchRepository
-} from './searchForm';
+} from './new';

@@ -27,8 +27,7 @@ export const searchSuccess = (owner, name, stargazers_count) => {
   firebase.database().ref('repositories').set(newRepository)
 
   return {
-    type: actionTypes.SEARCH_SUCCESS,
-    newRepository: newRepository 
+    type: actionTypes.SEARCH_SUCCESS
   }
 }
 
