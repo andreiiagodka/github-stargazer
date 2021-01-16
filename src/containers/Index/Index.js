@@ -7,6 +7,7 @@ import {
   Row
 } from "react-bootstrap";
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import * as actions from '../../store/actions/actions';
 
@@ -22,14 +23,25 @@ class Index extends Component {
     if (!this.props.loading) {
       repositories = this.props.repositories.map(repository => {
         return (
-          <ListGroup.Item>
-            <Row>
-              <Col md={7}>{repository.name}</Col>
-              <Col md={5} className='text-right'>{repository.stargazers_count}</Col>
-            </Row>
-          </ListGroup.Item>
+          <Link to={'/show/' + repository.id}>
+            <ListGroup.Item action>
+              <Row>
+                <Col md={7}>{repository.name}</Col>
+                <Col md={5} className='text-right'>{repository.stargazers_count}</Col>
+              </Row>
+            </ListGroup.Item>
+          </Link>
         )
       })
+    }
+
+    let body = <p>No repositories added</p>
+    if (this.props.repositories.length) {
+      body = (
+        <ListGroup>
+          {repositories}
+        </ListGroup>
+      )
     }
 
     return (
@@ -38,9 +50,7 @@ class Index extends Component {
           <strong>Github Stargazer</strong>
         </Card.Header>
         <Card.Body>
-          <ListGroup>
-            {repositories}
-          </ListGroup>
+          {body}
         </Card.Body>
       </Fragment>
     )

@@ -18,17 +18,10 @@ const fetchRepositoriesSuccess = (state, action) => {
   return updateObject(state, updatedState) 
 }
 
-const fetchRepositoriesFail = (state, action) => {
-  const updatedState = { error: action.error }
-
-  return updateObject(state, updatedState)
-}
-
 const reducer = (state = initialState, action) => {
   switch(action.type) {
     case actionTypes.FETCH_REPOSITORIES_START: return fetchRepositoriesStart(state, action)
     case actionTypes.FETCH_REPOSITORIES_SUCCESS: return fetchRepositoriesSuccess(state, action)
-    case actionTypes.FETCH_REPOSITORIES_FAIL: return fetchRepositoriesFail(state, action)
     default:
       return state
   }

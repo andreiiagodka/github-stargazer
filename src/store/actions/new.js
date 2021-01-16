@@ -6,16 +6,27 @@ import { firebase } from '../../config';
 export const searchRepository = name => {
   return dispatch => {
     axios.get('https://api.github.com/repos/' + name)
-      .then(response => {
-        const newRepository = {
-          name: name,
-          stargazers_count: response.data.stargazers_count
-        }
-        firebase.database().ref('repositories').push().set(newRepository)
-        
-        dispatch(searchSuccess())
+      .then(getResponse => {
+        axios.get('https://api.github.com/repos/' + name + '/languages')
+        .then(languagesResponse => {
+          const newRepository = {
+            name: name,
+            stats: {
+              watchers_count: getResponse.data.watchers_count,
+              stargazers_count: getResponse.data.stargazers_count,
+              forks_count: getResponse.data.forks_count,
+            },
+            languages: languagesResponse.data
+          }
+          firebase.database().ref('repositories').push().set(newRepository)
+
+          dispatch(searchSuccess())
+        })
+        .catch(languagesError => {
+          dispatch(searchFail())
+        })
       })
-      .catch(error => {
+      .catch(getError => {
         dispatch(searchFail())
       })
   }

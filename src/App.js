@@ -22,7 +22,7 @@ class App extends Component {
           <Route path='/new'>
             <New />
           </Route>
-          <Route path='/show'>
+          <Route path='/show/:id'>
             <Show />
           </Route>
           <Route path='/'>

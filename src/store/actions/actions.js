@@ -4,3 +4,6 @@ export {
 export {
   searchRepository
 } from './new';
+export {
+  showRepository
+} from './show';
