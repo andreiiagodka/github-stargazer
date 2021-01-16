@@ -12,9 +12,9 @@ export const searchRepository = name => {
           const newRepository = {
             name: name,
             stats: {
-              watchers_count: getResponse.data.watchers_count,
-              stargazers_count: getResponse.data.stargazers_count,
-              forks_count: getResponse.data.forks_count,
+              watchers: getResponse.data.watchers_count,
+              stars: getResponse.data.stargazers_count,
+              forks: getResponse.data.forks_count,
             },
             languages: languagesResponse.data
           }

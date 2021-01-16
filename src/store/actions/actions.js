@@ -5,5 +5,6 @@ export {
   searchRepository
 } from './new';
 export {
-  showRepository
+  showRepository,
+  deleteRepository
 } from './show';

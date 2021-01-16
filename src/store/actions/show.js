@@ -7,10 +7,18 @@ export const showRepository = id => {
   return dispatch => {
     dispatch(showRepositoryStart())
     firebase.database().ref('repositories/' + id).on('value', snapshot => {
-      const repository = snapshot.val()
-      
+      const repository = { id: id, ...snapshot.val() }
+
       dispatch(showRepositorySuccess(repository))
     })
+  }
+}
+
+export const deleteRepository = id => {
+  return dispatch => {
+    firebase.database().ref('repositories/' + id).remove()
+    
+    dispatch(deleteRepositorySuccess())
   }
 }
 
@@ -26,5 +34,12 @@ const showRepositorySuccess = repository => {
     type: actionTypes.SHOW_REPOSITORY_SUCCESS,
     repository: repository,
     loading: false
+  }
+}
+
+const deleteRepositorySuccess = () => {
+  return {
+    type: actionTypes.DELETE_REPOSITORY_SUCCESS,
+    deleted: true
   }
 }
