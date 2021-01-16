@@ -10,7 +10,7 @@ import {
   Card
 } from "react-bootstrap";
 
-import Index from './containers/Index/Index';
+import Home from './containers/Home/Home';
 import Show from './containers/Show/Show';
 import New from './components/New/New';
 
@@ -26,7 +26,7 @@ class App extends Component {
             <Show />
           </Route>
           <Route path='/'>
-            <Index />
+            <Home />
           </Route>
         </Switch>
       </Router>
