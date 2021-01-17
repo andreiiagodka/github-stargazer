@@ -11,8 +11,8 @@ import {
 } from "react-bootstrap";
 
 import Home from './containers/Home/Home';
-import Show from './containers/Show/Show';
-import New from './components/New/New';
+import AddRepository from './containers/AddRepository/AddRepository';
+import Details from './containers/Details/Details';
 
 class App extends Component {
   render() {
@@ -20,10 +20,10 @@ class App extends Component {
       <Router>
         <Switch>
           <Route path='/new'>
-            <New />
+            <AddRepository />
           </Route>
-          <Route path='/show/:id'>
-            <Show />
+          <Route path='/details/:id'>
+            <Details />
           </Route>
           <Route path='/'>
             <Home />

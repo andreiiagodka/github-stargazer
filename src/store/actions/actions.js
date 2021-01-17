@@ -1,10 +1,12 @@
 export {
-  fetchRepositories
-} from './index';
+  getRepositories
+} from './getRepositories';
 export {
-  searchRepository
-} from './new';
+  createRepository
+} from './createRepository';
 export {
-  showRepository,
+  getRepository
+} from './getRepository';
+export {
   deleteRepository
-} from './show';
+} from './deleteRepository';

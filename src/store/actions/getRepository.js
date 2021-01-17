@@ -1,15 +1,14 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
-import { firebase } from '../../config';
+import { repositoryGet } from '../../firebase/firebase';
 
-export const showRepository = id => {
+export const getRepository = id => {
   return dispatch => {
-    dispatch(showRepositoryStart())
-    firebase.database().ref('repositories/' + id).on('value', snapshot => {
+    repositoryGet(id).on('value', snapshot => {
       const repository = { id: id, ...snapshot.val() }
 
-      dispatch(showRepositorySuccess(repository))
+      dispatch(getRepositorySuccess(repository))
     })
   }
 }
@@ -22,16 +21,9 @@ export const deleteRepository = id => {
   }
 }
 
-const showRepositoryStart = () => {
+const getRepositorySuccess = repository => {
   return {
-    type: actionTypes.SHOW_REPOSITORY_START,
-    loading: true
-  }
-}
-
-const showRepositorySuccess = repository => {
-  return {
-    type: actionTypes.SHOW_REPOSITORY_SUCCESS,
+    type: actionTypes.GET_REPOSITORY_SUCCESS,
     repository: repository,
     loading: false
   }

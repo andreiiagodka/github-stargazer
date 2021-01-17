@@ -1,12 +1,6 @@
 import React, { Component, Fragment } from "react";
-import {
-  Card,
-  ListGroup,
-  Col,
-  Row
-} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import * as actions from '../../store/actions/actions';
 
@@ -17,7 +11,7 @@ import Repositories from '../../components/Home/Repositories/Repositories';
 
 class Home extends Component {
   componentDidMount() {
-    this.props.fetchRepositories()
+    this.props.getRepositories()
   }
 
   render() {
@@ -25,7 +19,9 @@ class Home extends Component {
     if (!this.props.loading) {
       content = (
         <Fragment>
-          <Header title='Github Stargazer' actionButton={<ActionButton />} />
+          <Card.Header>
+            <Header title='Github Stargazer' actionButton={<ActionButton />} />
+          </Card.Header>
           <Card.Body>
             <Repositories repositories={this.props.repositories} />
           </Card.Body>
@@ -39,14 +35,14 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    repositories: state.index.repositories,
-    loading: state.index.loading
+    repositories: state.getRepositories.repositories,
+    loading: state.getRepositories.loading
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchRepositories: () => dispatch(actions.fetchRepositories())
+    getRepositories: () => dispatch(actions.getRepositories())
   }
 }
 

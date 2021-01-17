@@ -6,13 +6,13 @@ const initialState = {
   loading: false
 }
 
-const fetchRepositoriesStart = (state, action) => {
+const getRepositoriesStart = (state, action) => {
   const updatedState = { loading: action.loading }
 
   return updateObject(state, updatedState)
 }
 
-const fetchRepositoriesSuccess = (state, action) => {
+const getRepositoriesSuccess = (state, action) => {
   const updatedState = { repositories: action.repositories, loading: action.loading }
 
   return updateObject(state, updatedState) 
@@ -20,8 +20,8 @@ const fetchRepositoriesSuccess = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case actionTypes.FETCH_REPOSITORIES_START: return fetchRepositoriesStart(state, action)
-    case actionTypes.FETCH_REPOSITORIES_SUCCESS: return fetchRepositoriesSuccess(state, action)
+    case actionTypes.GET_REPOSITORIES_START: return getRepositoriesStart(state, action)
+    case actionTypes.GET_REPOSITORIES_SUCCESS: return getRepositoriesSuccess(state, action)
     default:
       return state
   }

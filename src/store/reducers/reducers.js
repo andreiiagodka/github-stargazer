@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 
-import indexReducer from './index';
-import newReducer from './new';
-import showReducer from './show';
+import getRepositoriesReducer from './getRepositories';
+import createRepositoryReducer from './createRepository';
+import getRepositoryReducer from './getRepository';
+import deleteRepositoryReducer from './deleteRepository';
 
 const rootReducer = combineReducers({
-  index: indexReducer,
-  new: newReducer,
-  show: showReducer
+  getRepositories: getRepositoriesReducer,
+  createRepository: createRepositoryReducer,
+  getRepository: getRepositoryReducer,
+  deleteRepository: deleteRepositoryReducer
 })
 
 export default rootReducer
