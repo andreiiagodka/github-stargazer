@@ -16,7 +16,7 @@ export const repositoriesGet = () => {
 }
 
 export const repositoryGet = id => {
-  return firebase.database().ref('repositories/' + id)
+  return firebase.database().ref(REPOSITORIES_TABLE + '/' + id)
 }
 
 export const repositoryCreate = (name, repository, languages) => {
@@ -30,9 +30,9 @@ export const repositoryCreate = (name, repository, languages) => {
     languages: languages
   }
 
-  firebase.database().ref('repositories').push().set(params)
+  firebase.database().ref(REPOSITORIES_TABLE).push().set(params)
 }
 
 export const repositoryDelete = id => {
-  firebase.database().ref('repositories/' + id).remove()
+  firebase.database().ref(REPOSITORIES_TABLE + '/' + id).remove()
 }

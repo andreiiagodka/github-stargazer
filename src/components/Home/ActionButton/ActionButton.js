@@ -1,10 +1,15 @@
-import React from "react";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const actionButton = props => (
   <Link to='/new'>
-    <Button variant='light'>Add</Button>
+    <Button variant='light'>
+      <FontAwesomeIcon icon={faPlus} />
+    </Button>
   </Link>
 )
 
