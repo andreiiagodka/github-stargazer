@@ -8,23 +8,20 @@ const initialState = {
 }
 
 const createRepositoryStart = (state, action) => {
-  const updatedState = { loading: action.loading }
+  const updatedState = { error: action.error }
 
   return updateObject(state, updatedState)
 }
 
 const createRepositorySuccess = (state, action) => {
-  const updatedState = { 
-    loading: action.loading, 
-    error: action.error,
-    redirectTo: action.redirectTo
-  }
+  // const updatedState = { 
+  // }
 
-  return updateObject(state, updatedState) 
+  // return updateObject(state, updatedState) 
 }
 
 const createRepositoryFail = (state, action) => {
-  const updatedState = { loading: action.loading, error: action.error }
+  const updatedState = { error: action.error }
 
   return updateObject(state, updatedState)
 }

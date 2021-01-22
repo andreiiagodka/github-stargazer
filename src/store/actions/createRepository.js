@@ -8,17 +8,18 @@ export const createRepository = name => {
     dispatch(createRepositoryStart())
     axios.get('https://api.github.com/repos/' + name)
       .then(getResponse => {
-        axios.get(getResponse.data.languages_url)
-          .then(languagesResponse => {
-            repositoryCreate(name, getResponse.data, languagesResponse.data)
-            dispatch(createRepositorySuccess())
-          })
-          .catch(languagesError => {
-            dispatch(createRepositoryFail())
-          })
+        // axios.get(getResponse.data.languages_url)
+        //   .then(languagesResponse => {
+        //     repositoryCreate(name, getResponse.data, languagesResponse.data)
+        //     dispatch(createRepositorySuccess())
+        //   })
+        //   .catch(languagesError => {
+        //     dispatch(createRepositoryFail())
+        //   })
+        console.log(getResponse)
       })
       .catch(getError => {
-        dispatch(createRepositoryFail())
+        dispatch(createRepositoryFail('Repository not found'))
       })
   }
 }
@@ -26,23 +27,19 @@ export const createRepository = name => {
 const createRepositoryStart = () => {
   return {
     type: actionTypes.CREATE_REPOSITORY_START,
-    loading: true
+    error: null
   }
 }
 
 const createRepositorySuccess = () => {
   return {
     type: actionTypes.CREATE_REPOSITORY_SUCCESS,
-    loading: false,
-    error: null,
-    redirectTo: '/'
   }
 }
 
-const createRepositoryFail = () => {
+const createRepositoryFail = error => {
   return {
     type: actionTypes.CREATE_REPOSITORY_FAIL,
-    loading: false,
-    error: 'Repository not found' 
+    error: error
   }
 }
