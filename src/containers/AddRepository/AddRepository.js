@@ -6,22 +6,16 @@ import {
   Form,
   Button
 } from 'react-bootstrap'
-import { Redirect} from 'react-router';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
+import { withRouter } from 'react-router'
+import { Formik } from 'formik'
+import * as Yup from 'yup'
 
-import { connect } from 'react-redux';
-import * as actions from '../../store/actions/actions';
+import axios from 'axios'
+import { createRepository } from '../../firebase/firebase'
 
-import Spinner from '../../components/UI/Spinner/Spinner';
 import Header from '../../components/UI/Header/Header'
-// import Form from '../../components/AddRepository/Form/Form'
 
-class createRepository extends Component {
-  test = name => {
-    this.props.createRepository(name)
-  }
-
+class AddRepository extends Component {
   render() {
     const initialValues = { name: '' }
     const validationSchema = Yup.object({
@@ -32,16 +26,16 @@ class createRepository extends Component {
       <Formik 
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values, { setSubmitting, setFieldError, resetForm }) => {
+        onSubmit={(values, { setSubmitting, setFieldError }) => {
           setSubmitting(true)
-          this.props.createRepository(values.name)
-          setTimeout(() => {
-            if (this.props.error) {
-              setFieldError('name', this.props.error)
-            } else {
-              resetForm()
-            }
-          }, 500)
+          axios.get('https://api.github.com/repos/' + values.name)
+            .then(response => {
+              createRepository(response.data)
+              this.props.history.push('/')
+            })
+            .catch(() => {
+              setFieldError('name', 'Repository not found')
+            })
           setSubmitting(false)
         }}
       >
@@ -70,36 +64,20 @@ class createRepository extends Component {
       }
       </Formik>
     )
-    let content = <Spinner />
-    if (!this.props.loading) {
-      content = (
-        <Fragment>
-          <Card.Header>
-            <Header title='Add Repository' />
-          </Card.Header>
-          <Card.Body>
-            {form}
-          </Card.Body>
-        </Fragment>
-      )
-    }
 
+    const content = (
+      <Fragment>
+        <Card.Header>
+          <Header title='Add Repository' />
+        </Card.Header>
+        <Card.Body>
+          {form}
+        </Card.Body>
+      </Fragment>
+    )
+    
     return content
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    loading: state.createRepository.loading,
-    error: state.createRepository.error,
-    redirectTo: state.createRepository.redirectTo
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    createRepository: (name) => dispatch(actions.createRepository(name))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(createRepository)
+export default withRouter(AddRepository)

@@ -11,26 +11,23 @@ const firebase = Firebase.initializeApp(firebaseConfig)
 
 const REPOSITORIES_TABLE = 'repositories'
 
+export const createRepository = data => {
+  const attributes = {
+    full_name: data.full_name.toLowerCase(),
+    stargazers_count: data.stargazers_count,
+    watchers_count: data.watchers_count,
+    forks_count: data.forks_count  
+  }
+
+  firebase.database().ref(REPOSITORIES_TABLE).push().set(attributes)
+}
+
 export const repositoriesGet = () => {
   return firebase.database().ref(REPOSITORIES_TABLE)
 }
 
 export const repositoryGet = id => {
   return firebase.database().ref(REPOSITORIES_TABLE + '/' + id)
-}
-
-export const repositoryCreate = (name, repository, languages) => {
-  const params = {
-    name: name,
-    stats: {
-      watchers: repository.watchers_count,
-      stars: repository.stargazers_count,
-      forks: repository.forks_count,
-    },
-    languages: languages
-  }
-
-  firebase.database().ref(REPOSITORIES_TABLE).push().set(params)
 }
 
 export const repositoryDelete = id => {

@@ -9,8 +9,8 @@ const repositories = props => {
     return (
       <Repository 
         id={repository.id}
-        name={repository.name}
-        stars={repository.stats.stars} />
+        name={repository.full_name}
+        stars={repository.stargazers_count} />
     )
   })
 
