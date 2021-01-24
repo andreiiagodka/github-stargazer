@@ -22,14 +22,14 @@ export const createRepository = data => {
   firebase.database().ref(REPOSITORIES_TABLE).push().set(attributes)
 }
 
-export const repositoriesGet = () => {
-  return firebase.database().ref(REPOSITORIES_TABLE)
-}
-
-export const repositoryGet = id => {
+export const findRepository = id => {
   return firebase.database().ref(REPOSITORIES_TABLE + '/' + id)
 }
 
-export const repositoryDelete = id => {
+export const deleteRepository = id => {
   firebase.database().ref(REPOSITORIES_TABLE + '/' + id).remove()
+}
+
+export const repositoriesGet = () => {
+  return firebase.database().ref(REPOSITORIES_TABLE)
 }

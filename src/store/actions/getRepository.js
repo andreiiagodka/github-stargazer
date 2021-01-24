@@ -1,13 +1,27 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from './actionTypes'
 
-import { repositoryGet } from '../../firebase/firebase';
+import axios from 'axios'
+
+import { findRepository } from '../../firebase/firebase';
 
 export const getRepository = id => {
   return dispatch => {
-    repositoryGet(id).on('value', snapshot => {
-      const repository = { id: id, ...snapshot.val() }
+    findRepository(id).on('value', snapshot => {
+      if (!snapshot.val()) {
+        return
+      }
 
-      dispatch(getRepositorySuccess(repository))
+      axios.get('https://api.github.com/repos/' + snapshot.val().full_name + '/languages')
+      .then(response => {
+        const repository = { 
+          id: id,
+          languages: response.data,
+          ...snapshot.val() 
+        }
+        
+        dispatch(getRepositorySuccess(repository))
+      })
+      .catch(error => console.log(error))
     })
   }
 }

@@ -19,13 +19,13 @@ class App extends Component {
     let routes = (
       <Router>
         <Switch>
-          <Route path='/new'>
+          <Route exact path='/new'>
             <AddRepository />
           </Route>
-          <Route path='/details/:id'>
+          <Route exact path='/details/:id'>
             <Details />
           </Route>
-          <Route path='/'>
+          <Route exact path='/'>
             <Home />
           </Route>
         </Switch>

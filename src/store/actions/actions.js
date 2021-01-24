@@ -4,6 +4,3 @@ export {
 export {
   getRepository
 } from './getRepository';
-export {
-  deleteRepository
-} from './deleteRepository';
