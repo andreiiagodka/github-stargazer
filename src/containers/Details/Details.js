@@ -1,20 +1,14 @@
-import React, { Component, Fragment } from "react";
-import {
-  Row,
-  Col,
-  Card,
-  Button,
-  Container
-} from "react-bootstrap";
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
-import * as actions from '../../store/actions/actions';
+import * as actions from '../../store/actions/actions'
 import { deleteRepository } from '../../firebase/firebase'
 
-import Header from '../../components/UI/Header/Header'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import Error from '../../components/UI/Error/Error'
+import Layout from '../../components/UI/Layout/Layout'
+import Header from '../../components/UI/Header/Header'
 import ActionButton from '../../components/Details/ActionButton/ActionButton'
 import Body from '../../components/Details/Body/Body'
 
@@ -35,17 +29,10 @@ class Details extends Component {
     }
     if (!this.props.error && !this.props.loading) {
       const actionButton = <ActionButton handleDelete={() => this.handleDelete(this.props.repository.id)} />
+      const header = <Header title={this.props.repository.full_name} actionButton={actionButton} />
+      const body = <Body repository={this.props.repository} />
 
-      content = (
-        <Fragment>
-          <Card.Header>
-            <Header title={this.props.repository.full_name} actionButton={actionButton} />
-          </Card.Header>
-          <Card.Body>
-            <Body repository={this.props.repository} />
-          </Card.Body>
-        </Fragment>
-      )
+      content = <Layout header={header} body={body} />
     }
 
     return content

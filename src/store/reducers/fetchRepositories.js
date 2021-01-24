@@ -7,13 +7,13 @@ const initialState = {
 }
 
 const fetchRepositoriesStart = (state, action) => {
-  const updatedState = { loading: action.loading }
+  const updatedState = { loading: true }
 
   return updateObject(state, updatedState)
 }
 
 const fetchRepositoriesSuccess = (state, action) => {
-  const updatedState = { repositories: action.repositories, loading: action.loading }
+  const updatedState = { repositories: action.repositories, loading: false }
 
   return updateObject(state, updatedState) 
 }
