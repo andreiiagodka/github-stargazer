@@ -11,7 +11,7 @@ import Repositories from '../../components/Home/Repositories/Repositories';
 
 class Home extends Component {
   componentDidMount() {
-    this.props.getRepositories()
+    this.props.fetchRepositories()
   }
 
   render() {
@@ -35,14 +35,14 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    repositories: state.getRepositories.repositories,
-    loading: state.getRepositories.loading
+    repositories: state.fetchRepositories.repositories,
+    loading: state.fetchRepositories.loading
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    getRepositories: () => dispatch(actions.getRepositories())
+    fetchRepositories: () => dispatch(actions.fetchRepositories())
   }
 }
 

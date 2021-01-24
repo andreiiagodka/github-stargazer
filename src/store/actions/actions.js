@@ -1,6 +1,2 @@
-export {
-  getRepositories
-} from './getRepositories';
-export {
-  getRepository
-} from './getRepository';
+export { fetchRepositories } from './fetchRepositories'
+export { fetchRepository } from './fetchRepository'
