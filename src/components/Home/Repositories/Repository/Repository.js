@@ -1,8 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Row, Col, ListGroup } from "react-bootstrap";
+import React from 'react'
 
-const repository = props => (
+import { Link } from 'react-router-dom'
+import { Row, Col, ListGroup } from 'react-bootstrap'
+
+const Repository = props => (
   <Link to={'/details/' + props.id}>
     <ListGroup.Item action>
       <Row>
@@ -13,4 +14,4 @@ const repository = props => (
   </Link>
 )
 
-export default repository
+export default Repository

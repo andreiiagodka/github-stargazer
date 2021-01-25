@@ -1,13 +1,13 @@
 import React from 'react'
-import { Container, Col, Form, Button } from 'react-bootstrap'
 
+import { Container, Col, Form, Button } from 'react-bootstrap'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-import { createRepository } from '../../../firebase/firebase'
-import { getRepositoryData } from '../../../github/github'
+import { getRepositoryData } from '../../../shared/github'
+import { createRepository } from '../../../shared/firebase'
 
-const AddRepositoryForm = props => {
+const Body = props => {
   const initialValues = { name: '' }
   const validationSchema = Yup.object({
     name: Yup.string().required('Required')
@@ -56,4 +56,4 @@ const AddRepositoryForm = props => {
   )
 }
 
-export default AddRepositoryForm
+export default Body

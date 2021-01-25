@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
+
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-
 import * as actions from '../../store/actions/actions'
-import { deleteRepository } from '../../firebase/firebase'
 
 import Spinner from '../../components/UI/Spinner/Spinner'
 import Error from '../../components/UI/Error/Error'
@@ -17,19 +16,18 @@ class Details extends Component {
     this.props.fetchRepository(this.props.match.params.id)
   }
   
-  handleDelete = (id) => {
-    deleteRepository(id)
-    this.props.history.push('/')
-  }
-
   render() {
     let content = <Spinner />
     if (this.props.error) {
       content = <Error />
     }
     if (!this.props.error && !this.props.loading) {
-      const actionButton = <ActionButton handleDelete={() => this.handleDelete(this.props.repository.id)} />
-      const header = <Header title={this.props.repository.full_name} actionButton={actionButton} />
+      const header = (
+        <Header 
+          title={this.props.repository.full_name} 
+          actionButton={<ActionButton id={this.props.repository.id} history={this.props.history} />} 
+        />
+      )
       const body = <Body repository={this.props.repository} />
 
       content = <Layout header={header} body={body} />

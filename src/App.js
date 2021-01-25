@@ -1,18 +1,11 @@
-import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
-import {
-  Container,
-  Col,
-  Card
-} from "react-bootstrap";
+import React, { Component } from 'react'
 
-import Home from './containers/Home/Home';
-import AddRepository from './containers/AddRepository/AddRepository';
-import Details from './containers/Details/Details';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Container, Col, Card } from 'react-bootstrap'
+
+import Home from './containers/Home/Home'
+import Details from './containers/Details/Details'
+import AddRepository from './components/AddRepository/AddRepository'
 
 class App extends Component {
   render() {
@@ -44,4 +37,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

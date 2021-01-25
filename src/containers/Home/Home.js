@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
-import * as actions from '../../store/actions/actions';
+import { connect } from 'react-redux'
+import * as actions from '../../store/actions/actions'
 
 import Spinner from '../../components/UI/Spinner/Spinner'
 import Header from '../../components/UI/Header/Header'

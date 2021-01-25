@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+
 import { Card } from 'react-bootstrap'
 
 const Layout = props => (

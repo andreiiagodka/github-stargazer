@@ -1,7 +1,8 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
 
-const blank = props => (
+import { Row, Col } from 'react-bootstrap'
+
+const Blank = () => (
   <Row>
     <Col md={12} className='text-center'>
       <p className='lead'>No repositories added</p>
@@ -9,4 +10,4 @@ const blank = props => (
   </Row>
 )
 
-export default blank
+export default Blank

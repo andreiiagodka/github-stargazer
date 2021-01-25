@@ -1,6 +1,6 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from './actionTypes'
 
-import { allRepositories } from '../../firebase/firebase';
+import { allRepositories } from '../../shared/firebase'
 
 export const fetchRepositories = () => {
   return dispatch => {

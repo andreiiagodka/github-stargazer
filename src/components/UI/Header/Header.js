@@ -1,7 +1,8 @@
-import React from "react";
-import { Row, Col, Card, Button } from "react-bootstrap";
+import React from 'react'
 
-const header = props => (
+import { Row, Col } from 'react-bootstrap'
+
+const Header = props => (
   <Row>
     <Col md={2}></Col>
     <Col md={8} className='text-center'>
@@ -13,4 +14,4 @@ const header = props => (
   </Row>
 )
 
-export default header
+export default Header
