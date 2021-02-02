@@ -1,13 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { Container, Col, Form, Button } from 'react-bootstrap'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
-import { getRepositoryData } from '../../../shared/github'
-import { createRepository } from '../../../shared/firebase'
-
-const Body = props => {
+const Body = ({ getRepositoryData, createRepository, history }) => {
   const initialValues = { name: '' }
   const validationSchema = Yup.object({
     name: Yup.string().required('Required')
@@ -23,7 +21,7 @@ const Body = props => {
           const [ repository, languages ] = response
 
           createRepository(repository.data, languages.data)
-          props.history.push('/')
+          history.push('/')
         })
         .catch(() => {
           setFieldError('name', 'Repository not found')
@@ -54,6 +52,12 @@ const Body = props => {
       </Col>
     </Container>
   )
+}
+
+Body.propTypes = {
+  getRepositoryData: PropTypes.func.isRequired,
+  createRepository: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default Body

@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Body /> component renders component correctly 1`] = `
+<div
+  className="container-fluid"
+>
+  <div
+    className="col-md-8 offset-md-2"
+  >
+    <form
+      className=""
+      onSubmit={[Function]}
+    >
+      <div
+        className="form-group"
+      >
+        <input
+          className="form-control"
+          id="name"
+          name="name"
+          onBlur={[Function]}
+          onChange={[Function]}
+          placeholder="Enter repository name, e.g. rubygarage/truemail"
+          value=""
+        />
+      </div>
+      <button
+        className="btn btn-primary btn-block btn-lg"
+        disabled={false}
+        type="submit"
+      >
+        Add
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`<Body /> component shows \`Repository not found\` error 1`] = `
+<div>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="col-md-8 offset-md-2"
+    >
+      <form
+        class=""
+      >
+        <div
+          class="form-group"
+        >
+          <input
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter repository name, e.g. rubygarage/truemail"
+            value="Name"
+          />
+          <small
+            class="text-danger form-text"
+          >
+            Repository not found
+          </small>
+        </div>
+        <button
+          class="btn btn-primary btn-block btn-lg"
+          type="submit"
+        >
+          Add
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Body /> component shows \`Required\` error 1`] = `
+<div>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="col-md-8 offset-md-2"
+    >
+      <form
+        class=""
+      >
+        <div
+          class="form-group"
+        >
+          <input
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter repository name, e.g. rubygarage/truemail"
+            value=""
+          />
+          <small
+            class="text-danger form-text"
+          >
+            Required
+          </small>
+        </div>
+        <button
+          class="btn btn-primary btn-block btn-lg"
+          type="submit"
+        >
+          Add
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

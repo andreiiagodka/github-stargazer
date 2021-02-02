@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/actions'
@@ -25,6 +26,12 @@ class Home extends Component {
 
     return content
   }
+}
+
+Home.propTypes = {
+  repositories: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  fetchRepositories: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {

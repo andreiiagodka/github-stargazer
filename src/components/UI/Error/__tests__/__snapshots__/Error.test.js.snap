@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Error /> component renders component correctly 1`] = `
+<div
+  className="fade text-center alert alert-danger show"
+  role="alert"
+>
+  Something went wrong!
+</div>
+`;

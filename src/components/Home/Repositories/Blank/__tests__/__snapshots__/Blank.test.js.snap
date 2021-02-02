@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Blank /> component renders component correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="text-center col-md-12"
+  >
+    <p
+      className="lead"
+    >
+      No repositories added
+    </p>
+  </div>
+</div>
+`;

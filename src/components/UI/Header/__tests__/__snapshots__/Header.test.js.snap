@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> component renders component correctly 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-md-2"
+  />
+  <div
+    className="text-center col-md-8"
+  >
+    <h5>
+      Title
+    </h5>
+  </div>
+  <div
+    className="text-right col-md-2"
+  >
+    Action Button
+  </div>
+</div>
+`;

@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> container renders <Blank /> container 1`] = `
+Array [
+  <div
+    className="card-header"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-2"
+      />
+      <div
+        className="text-center col-md-8"
+      >
+        <h5>
+          Github Stargazer
+        </h5>
+      </div>
+      <div
+        className="text-right col-md-2"
+      >
+        <a
+          href="/new"
+          onClick={[Function]}
+        >
+          <button
+            className="btn btn-light"
+            disabled={false}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-plus fa-w-14 "
+              data-icon="plus"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="card-body"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="text-center col-md-12"
+      >
+        <p
+          className="lead"
+        >
+          No repositories added
+        </p>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`<Home /> container renders <Spinner /> container 1`] = `
+<div
+  className="Loader"
+>
+  Loading ...
+</div>
+`;
+
+exports[`<Home /> container renders container correctly 1`] = `
+Array [
+  <div
+    className="card-header"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-2"
+      />
+      <div
+        className="text-center col-md-8"
+      >
+        <h5>
+          Github Stargazer
+        </h5>
+      </div>
+      <div
+        className="text-right col-md-2"
+      >
+        <a
+          href="/new"
+          onClick={[Function]}
+        >
+          <button
+            className="btn btn-light"
+            disabled={false}
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-plus fa-w-14 "
+              data-icon="plus"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="card-body"
+  >
+    <div
+      className="list-group"
+      onKeyDown={[Function]}
+    >
+      <a
+        href="/details/1"
+        onClick={[Function]}
+      >
+        <button
+          className="list-group-item list-group-item-action"
+          data-rb-event-key={null}
+          disabled={false}
+          onClick={[Function]}
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-md-7"
+            >
+              Full name
+            </div>
+            <div
+              className="text-right col-md-5"
+            >
+              1
+            </div>
+          </div>
+        </button>
+      </a>
+    </div>
+  </div>,
+]
+`;

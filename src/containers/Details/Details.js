@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
@@ -35,6 +36,13 @@ class Details extends Component {
 
     return content
   }
+}
+
+Details.propTypes = {
+  repository: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+  fetchRepository: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => {

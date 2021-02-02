@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Repositories /> component when repositories are empty 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="text-center col-md-12"
+  >
+    <p
+      className="lead"
+    >
+      No repositories added
+    </p>
+  </div>
+</div>
+`;
+
+exports[`<Repositories /> component when repositories are not empty 1`] = `
+<div
+  className="list-group"
+  onKeyDown={[Function]}
+>
+  <a
+    href="/details/1"
+    onClick={[Function]}
+  >
+    <button
+      className="list-group-item list-group-item-action"
+      data-rb-event-key={null}
+      disabled={false}
+      onClick={[Function]}
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-7"
+        >
+          Full name
+        </div>
+        <div
+          className="text-right col-md-5"
+        >
+          1
+        </div>
+      </div>
+    </button>
+  </a>
+</div>
+`;
