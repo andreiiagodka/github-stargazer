@@ -10,6 +10,14 @@ describe('fetchRepository reducer', () => {
     expect(reducer(oldState, action)).toEqual(newState)
   })
 
+  it('when FETCH_REPOSITORY_START action', () => {
+    const oldState = undefined
+    const action = { type: actionTypes.FETCH_REPOSITORY_START }
+    const newState = { repository: null, loading: true, error: false }
+
+    expect(reducer(oldState, action)).toEqual(newState)
+  })
+
   it('when FETCH_REPOSITORY_SUCCESS action', () => {
     const repository = { id: 1 }
 

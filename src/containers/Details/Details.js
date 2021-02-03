@@ -39,7 +39,7 @@ class Details extends Component {
 }
 
 Details.propTypes = {
-  repository: PropTypes.object.isRequired,
+  repository: PropTypes.object,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
   fetchRepository: PropTypes.func.isRequired

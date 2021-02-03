@@ -7,6 +7,10 @@ const initialState = {
   error: false
 }
 
+const fetchRepositoryStart = (state, action) => {	
+  return updateObject(state, initialState)	
+}
+
 const fetchRepositorySuccess = (state, action) => {
   const updatedState = { repository: action.repository, loading: false }
 
@@ -21,6 +25,7 @@ const fetchRepositoryFail = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
+    case actionTypes.FETCH_REPOSITORY_START: return fetchRepositoryStart(state, action)
     case actionTypes.FETCH_REPOSITORY_SUCCESS: return fetchRepositorySuccess(state, action)
     case actionTypes.FETCH_REPOSITORY_FAIL: return fetchRepositoryFail(state, action)
     default:

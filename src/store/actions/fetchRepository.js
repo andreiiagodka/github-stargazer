@@ -4,6 +4,8 @@ import { findRepository } from '../../shared/firebase'
 
 export const fetchRepository = id => {
   return dispatch => {
+    dispatch( fetchRepositoryStart() )
+
     findRepository(id).on('value', snapshot => {
       if ( snapshot.val() ) {
         const repository = { id: id, ...snapshot.val() }
@@ -14,6 +16,12 @@ export const fetchRepository = id => {
       }
     })
   }
+}
+
+const fetchRepositoryStart = () => {	
+  return {	
+    type: actionTypes.FETCH_REPOSITORY_START	
+  }	
 }
 
 const fetchRepositorySuccess = repository => {
