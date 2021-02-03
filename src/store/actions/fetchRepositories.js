@@ -20,17 +20,15 @@ export const fetchRepositories = () => {
   }
 }
 
-export const fetchRepositoriesStart = () => {
+const fetchRepositoriesStart = () => {
   return {
-    type: actionTypes.FETCH_REPOSITORIES_START,
-    loading: true
+    type: actionTypes.FETCH_REPOSITORIES_START
   }
 }
 
-export const fetchRepositoriesSuccess = (repositories) => {
+const fetchRepositoriesSuccess = (repositories) => {
   return {
     type: actionTypes.FETCH_REPOSITORIES_SUCCESS,
-    repositories: repositories,
-    loading: false
+    repositories: repositories
   }
 }
