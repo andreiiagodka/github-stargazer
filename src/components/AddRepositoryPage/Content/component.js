@@ -1,66 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Container, Col, Form, Button } from 'react-bootstrap'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
+import { Container, Col } from 'react-bootstrap'
 
-import { getRepositoryData } from '../../../shared/github'
-import { createRepository } from '../../../shared/firebase'
+import AddRepositoryForm from './AddRepositoryForm'
 
-const Content = ({ history }) => {
-  const initialValues = { name: '' }
-  const validationSchema = Yup.object({
-    name: Yup.string().required('Required')
-  })
-
-  const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: validationSchema,
-    onSubmit: (values, { setSubmitting, setFieldError }) => {
-      setSubmitting(true)
-      getRepositoryData(values.name)
-        .then(response => {
-          const [ repository, languages ] = response
-
-          createRepository(repository.data, languages.data)
-          history.push('/')
-        })
-        .catch(() => {
-          setFieldError('name', 'Repository not found')
-        })
-      setSubmitting(false)
-    }
-  })
-
+const ContentComponent = ({ history }) => {
   return (
     <Container fluid>
       <Col md={{ span: 8, offset: 2 }}>
-        <Form onSubmit={formik.handleSubmit}>
-          <Form.Group>
-            <Form.Control
-              id='name'
-              name='name'
-              placeholder='Enter repository name, e.g. rubygarage/truemail'
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.name}
-            />
-            { formik.touched.name && formik.errors.name ? (<Form.Text className="text-danger">{formik.errors.name}</Form.Text>) : null }
-          </Form.Group>
-          <Button type='submit' variant='primary' size='lg' block>
-            Add
-          </Button>
-        </Form>
+        <AddRepositoryForm history={history} />
       </Col>
     </Container>
   )
 }
 
-Content.propTypes = {
-  getRepositoryData: PropTypes.func.isRequired,
-  createRepository: PropTypes.func.isRequired,
+ContentComponent.propTypes = {
   history: PropTypes.object.isRequired
 }
 
-export default Content
+export default ContentComponent
