@@ -1,0 +1,50 @@
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import { connect } from 'react-redux'
+import * as actions from '../../store/actions/actions'
+
+import Spinner from '../UI/Spinner/component'
+import Layout from '../UI/Layout/component'
+import Header from './Header'
+import Content from './Content'
+
+class HomePage extends Component {
+  componentDidMount() {
+    this.props.fetchRepositories()
+  }
+
+  render() {
+    let content = <Spinner />
+    if (!this.props.loading) {
+      content = (
+        <Layout 
+          header={<Header />} 
+          body={<Content repositories={this.props.repositories} />} />
+      )
+    }
+
+    return content
+  }
+}
+
+HomePage.propTypes = {
+  repositories: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  fetchRepositories: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => {
+  return {
+    repositories: state.fetchRepositories.repositories,
+    loading: state.fetchRepositories.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchRepositories: () => dispatch(actions.fetchRepositories())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

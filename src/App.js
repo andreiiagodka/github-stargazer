@@ -3,22 +3,22 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Container, Col, Card } from 'react-bootstrap'
 
-import Home from './containers/Home/Home'
-import Details from './containers/Details/Details'
-import AddRepository from './components/AddRepository/AddRepository'
+import HomePage from './components/HomePage'
+import AddRepositoryPage from './components/AddRepositoryPage'
+import DetailsPage from './components/DetailsPage'
 
 const App = () => {
   const routes = (
     <Router>
       <Switch>
         <Route exact path='/new'>
-          <AddRepository />
+          <AddRepositoryPage />
         </Route>
         <Route exact path='/details/:id'>
-          <Details />
+          <DetailsPage />
         </Route>
         <Route exact path='/'>
-          <Home />
+          <HomePage />
         </Route>
       </Switch>
     </Router>
