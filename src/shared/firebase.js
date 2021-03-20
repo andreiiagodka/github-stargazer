@@ -7,7 +7,7 @@ const firebaseConfig = {
   projectId: 'github-stargazer-4e8a3'
 }
 
-const firebase = Firebase.initializeApp(firebaseConfig)
+export const firebase = Firebase.initializeApp(firebaseConfig)
 
 const REPOSITORIES_TABLE = 'repositories'
 

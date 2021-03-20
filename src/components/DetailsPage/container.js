@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import * as actions from '../../store/actions/actions'
+import * as actions from '../../store/actions'
 
 import Header from './Header'
 import Content from './Content'

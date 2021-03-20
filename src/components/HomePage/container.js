@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import * as actions from '../../store/actions/actions'
+import * as actions from '../../store/actions'
 
 import Spinner from '../UI/Spinner/component'
 import Layout from '../UI/Layout/component'

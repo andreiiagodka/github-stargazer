@@ -1,10 +1,11 @@
 import { withFormik } from 'formik'
 import * as Yup from 'yup'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
 import AddRepositoryFormComponent from './component'
 
-import { getRepositoryData } from '../../../../shared/github'
-import { createRepository } from '../../../../shared/firebase'
+import * as actions from '../../../../store/actions'
 
 const validationSchema = Yup.object({
   name: Yup.string().required('Required')
@@ -14,22 +15,22 @@ const AddRepositoryFormContainer = withFormik({
   mapPropsToValues: () => ({ name: '' }),
   validationSchema,
 
-  handleSubmit: (values, { setSubmitting, setFieldError }) => {
-    setSubmitting(true)
-    getRepositoryData(values.name)
-      .then(response => {
-        const [ repository, languages ] = response
+  handleSubmit: (values, { props, setSubmitting, setFieldError }) => {
+    const payload = {
+      name: values.name,
+      history: props.history,
+      setSubmitting,
+      setFieldError
+    }
 
-        createRepository(repository.data, languages.data)
-        // history.push('/')
-      })
-      .catch(() => {
-        setFieldError('name', 'Repository not found')
-      })
-    setSubmitting(false)
+    props.createRepository(payload)
   },
 
   displayName: 'AddRepositoryFormContainer'
 })(AddRepositoryFormComponent)
 
-export default AddRepositoryFormContainer
+const mapDispatchToProps = dispatch => ({
+  createRepository: payload => dispatch(actions.createRepository(payload)),
+})
+
+export default connect(null, mapDispatchToProps)(withRouter(AddRepositoryFormContainer))
