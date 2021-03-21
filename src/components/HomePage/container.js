@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import * as actions from '../../store/actions'
+import { fetchRepositoriesActions } from '../../store/actions'
 
-import Spinner from '../UI/Spinner/component'
-import Layout from '../UI/Layout/component'
+import Spinner from '../UI/Spinner'
+import Layout from '../UI/Layout'
+import Error from '../UI/Error'
 import Header from './Header'
 import Content from './Content'
 
@@ -16,7 +17,10 @@ class HomePage extends Component {
 
   render() {
     let content = <Spinner />
-    if (!this.props.loading) {
+    if (this.props.error) {
+      content = <Error />
+    }
+    if (!this.props.error && !this.props.loading) {
       content = (
         <Layout 
           header={<Header />} 
@@ -43,7 +47,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchRepositories: () => dispatch(actions.fetchRepositories())
+    fetchRepositories: () => dispatch(fetchRepositoriesActions.fetchRepositories())
   }
 }
 

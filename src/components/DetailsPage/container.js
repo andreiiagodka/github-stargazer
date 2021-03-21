@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import * as actions from '../../store/actions'
+import { fetchRepositoryActions } from '../../store/actions'
 
 import Header from './Header'
 import Content from './Content'
-import Error from './Error'
+import Error from '../UI/Error'
 import Layout from '../UI/Layout'
 import Spinner from '../UI/Spinner'
 
@@ -24,7 +24,7 @@ class DetailsPage extends Component {
     if (!this.props.error && !this.props.loading) {
       content = (
         <Layout 
-          header={<Header repository={this.props.repository} history={this.props.history}/>} 
+          header={<Header repository={this.props.repository}/>} 
           body={<Content repository={this.props.repository} />} />
       )
     }
@@ -50,7 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchRepository: (id) => dispatch(actions.fetchRepository(id))
+    fetchRepository: (id) => dispatch(fetchRepositoryActions.fetchRepository(id))
   }
 }
 

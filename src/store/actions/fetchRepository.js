@@ -1,38 +1,23 @@
 import * as actionTypes from './actionTypes'
 
-import { findRepository } from '../../shared/firebase'
+const fetchRepository = id => ({
+  type: actionTypes.FETCH_REPOSITORY,
+  id: id
+})
 
-export const fetchRepository = id => {
-  return dispatch => {
-    dispatch( fetchRepositoryStart() )
+const fetchRepositorySuccess = repository => ({
+  type: actionTypes.FETCH_REPOSITORY_SUCCESS,
+  repository: repository
+})
 
-    findRepository(id).on('value', snapshot => {
-      if ( snapshot.val() ) {
-        const repository = { id: id, ...snapshot.val() }
+const fetchRepositoryFail = () => ({
+  type: actionTypes.FETCH_REPOSITORY_FAIL
+})
 
-        dispatch( fetchRepositorySuccess(repository) )
-      } else {
-        dispatch( fetchRepositoryFail() )
-      }
-    })
-  }
-}
+const actions = {
+  fetchRepository,
+  fetchRepositorySuccess,
+  fetchRepositoryFail
+} 
 
-const fetchRepositoryStart = () => {	
-  return {	
-    type: actionTypes.FETCH_REPOSITORY_START	
-  }	
-}
-
-const fetchRepositorySuccess = repository => {
-  return {
-    type: actionTypes.FETCH_REPOSITORY_SUCCESS,
-    repository: repository
-  }
-}
-
-const fetchRepositoryFail = () => {
-  return { 
-    type: actionTypes.FETCH_REPOSITORY_FAIL
-  }
-}
+export { actions as default }

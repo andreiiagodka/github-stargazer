@@ -43,7 +43,7 @@ const createRepositoryLogic = createLogic({
       .catch(() => {
         setFieldError('name', 'Repository not found')
       })
-      .then(() => {
+      .finally(() => {
         setSubmitting(false)
         done()
       })
