@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic'
 
-import * as actionTypes from '../actions/actionTypes'
+import * as actionTypes from '../actionTypes'
 
 const URL = 'https://api.github.com/repos'
 
@@ -37,8 +37,6 @@ const createRepositoryLogic = createLogic({
         }
 
         firebase.database().ref('repositories').push().set(attributes)
-
-        history.push('/')
       })
       .catch(() => {
         setFieldError('name', 'Repository not found')
@@ -46,6 +44,7 @@ const createRepositoryLogic = createLogic({
       .finally(() => {
         setSubmitting(false)
         done()
+        history.push('/')
       })
   }
 })

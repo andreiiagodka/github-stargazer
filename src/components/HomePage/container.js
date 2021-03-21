@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import { fetchRepositoriesActions } from '../../store/actions'
+import * as actions from '../../store/actions'
 
 import Spinner from '../UI/Spinner'
 import Layout from '../UI/Layout'
@@ -40,14 +40,14 @@ HomePage.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    repositories: state.fetchRepositories.repositories,
-    loading: state.fetchRepositories.loading
+    repositories: state.repositories,
+    loading: state.loading
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchRepositories: () => dispatch(fetchRepositoriesActions.fetchRepositories())
+    fetchRepositories: () => dispatch(actions.fetchRepositories())
   }
 }
 

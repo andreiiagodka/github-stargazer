@@ -1,6 +1,6 @@
 import { createLogic } from 'redux-logic'
 
-import * as actionTypes from '../actions/actionTypes'
+import * as actionTypes from '../actionTypes'
 
 const URL = 'https://api.github.com/repos'
 

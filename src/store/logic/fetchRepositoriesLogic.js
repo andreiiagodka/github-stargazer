@@ -1,25 +1,30 @@
 import { createLogic } from 'redux-logic'
 
-import * as actionTypes from '../actions/actionTypes'
-import { fetchRepositoriesActions } from '../actions'
+import * as actionTypes from '../actionTypes'
+import * as actions from '../actions'
 
 const fetchRepositoriesLogic = createLogic({
   type: actionTypes.FETCH_REPOSITORIES,
   debounce: 500,
   latest: true,
 
-  process({ firebase, action }, dispatch, done) {
+  process({ firebase }, dispatch, done) {
+    dispatch( actions.startOperation() )
+
     firebase.database().ref('repositories').once('value')
       .then(response => {
         const repositories = response.val()
-        const fetchedRepositories = Object.keys(repositories).map(id => {
-          return { id: id, ...repositories[id] }
-        })
-  
-        dispatch( fetchRepositoriesActions.fetchRepositoriesSuccess(fetchedRepositories) )
+        let fetchedRepositories = []
+        if (repositories) {
+          fetchedRepositories = Object.keys(repositories).map(id => {
+            return { id: id, ...repositories[id] }
+          })
+        }
+        
+        dispatch( actions.fetchRepositoriesSuccess(fetchedRepositories) )
       })
       .catch(() => {
-        dispatch( fetchRepositoriesActions.fetchRepositoriesFail() )
+        dispatch( actions.failOperation() )
       })
       .finally(() => {
         done()

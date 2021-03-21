@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import { fetchRepositoryActions } from '../../store/actions'
+import * as actions from '../../store/actions'
 
 import Header from './Header'
 import Content from './Content'
@@ -17,6 +17,7 @@ class DetailsPage extends Component {
   }
   
   render() {
+    console.log(this.props)
     let content = <Spinner />
     if (this.props.error) {
       content = <Error />
@@ -42,15 +43,15 @@ DetailsPage.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    repository: state.fetchRepository.repository,
-    loading: state.fetchRepository.loading,
-    error: state.fetchRepository.error
+    repository: state.repository,
+    loading: state.loading,
+    error: state.error
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchRepository: (id) => dispatch(fetchRepositoryActions.fetchRepository(id))
+    fetchRepository: (id) => dispatch(actions.fetchRepository(id))
   }
 }
 
