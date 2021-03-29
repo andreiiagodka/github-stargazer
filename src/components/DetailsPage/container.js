@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import * as actions from '../../store/actions'
+import { selectRepository, selectLoading, selectError } from '../../store/selectors/fetchRepositorySelector'
 
 import Header from './Header'
 import Content from './Content'
@@ -17,10 +18,9 @@ class DetailsPage extends Component {
   }
   
   render() {
-    console.log(this.props)
     let content = <Spinner />
     if (this.props.error) {
-      content = <Error />
+      return <Error />
     }
     if (!this.props.error && !this.props.loading) {
       content = (
@@ -43,9 +43,9 @@ DetailsPage.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    repository: state.repository,
-    loading: state.loading,
-    error: state.error
+    repository: selectRepository(state),
+    loading: selectLoading(state),
+    error: selectError(state)
   }
 }
 

@@ -12,7 +12,7 @@ import * as actions from '../../../store/actions'
 class Header extends Component {
   handleDelete = () => {
     const payload = {
-      id: this.props.repository.id,
+      id: this.props.match.params.id,
       history: this.props.history
     }
 

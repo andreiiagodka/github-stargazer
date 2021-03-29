@@ -37,6 +37,7 @@ const createRepositoryLogic = createLogic({
         }
 
         firebase.database().ref('repositories').push().set(attributes)
+        history.push('/')
       })
       .catch(() => {
         setFieldError('name', 'Repository not found')
@@ -44,7 +45,6 @@ const createRepositoryLogic = createLogic({
       .finally(() => {
         setSubmitting(false)
         done()
-        history.push('/')
       })
   }
 })

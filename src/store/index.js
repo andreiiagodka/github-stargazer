@@ -4,7 +4,7 @@ import { createLogicMiddleware } from 'redux-logic'
 import axios from 'axios'
 import { firebase } from '../config/firebase'
 
-import reducer from './reducer'
+import rootReducer from './reducers'
 import logic from './logic'
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose
@@ -16,7 +16,7 @@ const dependencies = {
 
 const logicMiddleware = createLogicMiddleware(logic, dependencies)
 
-const store = createStore(reducer, composeEnhancers(
+const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(logicMiddleware)
 ))
 

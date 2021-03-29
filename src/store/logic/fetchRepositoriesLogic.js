@@ -13,15 +13,7 @@ const fetchRepositoriesLogic = createLogic({
 
     firebase.database().ref('repositories').once('value')
       .then(response => {
-        const repositories = response.val()
-        let fetchedRepositories = []
-        if (repositories) {
-          fetchedRepositories = Object.keys(repositories).map(id => {
-            return { id: id, ...repositories[id] }
-          })
-        }
-        
-        dispatch( actions.fetchRepositoriesSuccess(fetchedRepositories) )
+        dispatch( actions.fetchRepositoriesSuccess(response.val()) )
       })
       .catch(() => {
         dispatch( actions.failOperation() )
