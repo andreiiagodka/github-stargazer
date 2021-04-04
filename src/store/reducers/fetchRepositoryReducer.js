@@ -7,10 +7,6 @@ const initialState = {
   error: false
 }
 
-const startOperation = state => {
-  return updateObject(state, initialState)
-}
-
 const failOperation = state => {
   const updatedState = { ...initialState, loading: false, error: true }
 
@@ -25,7 +21,6 @@ const fetchRepositorySuccess = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case actionTypes.START_OPERATION: return startOperation(state)
     case actionTypes.FAIL_OPERATION: return failOperation(state)
     case actionTypes.FETCH_REPOSITORY_SUCCESS: return fetchRepositorySuccess(state, action)
     default:

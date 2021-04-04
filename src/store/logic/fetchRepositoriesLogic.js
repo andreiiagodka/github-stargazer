@@ -9,8 +9,6 @@ const fetchRepositoriesLogic = createLogic({
   latest: true,
 
   process({ firebase }, dispatch, done) {
-    dispatch( actions.startOperation() )
-
     firebase.database().ref('repositories').once('value')
       .then(response => {
         dispatch( actions.fetchRepositoriesSuccess(response.val()) )

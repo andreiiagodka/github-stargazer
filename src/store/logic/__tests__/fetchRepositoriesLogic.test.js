@@ -51,7 +51,6 @@ describe('success', () => {
     store.whenComplete(() => {
       expect(store.actions).toEqual([
         { type: actionTypes.FETCH_REPOSITORIES },
-        { type: actionTypes.START_OPERATION },
         { type: actionTypes.FETCH_REPOSITORIES_SUCCESS, repositories: valReponse }
       ])
       done()
@@ -87,7 +86,6 @@ describe('failure', () => {
     store.whenComplete(() => {
       expect(store.actions).toEqual([
         { type: actionTypes.FETCH_REPOSITORIES },
-        { type: actionTypes.START_OPERATION },
         { type: actionTypes.FAIL_OPERATION }
       ])
       done()

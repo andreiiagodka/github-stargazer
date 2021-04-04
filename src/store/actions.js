@@ -1,9 +1,5 @@
 import * as actionTypes from './actionTypes'
 
-export const startOperation = () => ({
-  type: actionTypes.START_OPERATION
-})
-
 export const failOperation = () => ({
   type: actionTypes.FAIL_OPERATION
 })
