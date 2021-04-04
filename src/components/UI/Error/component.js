@@ -2,10 +2,10 @@ import React from 'react'
 
 import { Alert } from 'react-bootstrap'
 
-const Error = () => (
+const ErrorComponent = () => (
   <Alert variant='danger' className='text-center'>
     Something went wrong!
   </Alert>
 )
 
-export default Error
+export default ErrorComponent

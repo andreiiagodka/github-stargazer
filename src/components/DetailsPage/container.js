@@ -8,9 +8,9 @@ import { selectRepository, selectLoading, selectError } from '../../store/select
 
 import Header from './Header'
 import Content from './Content'
-import Error from '../UI/Error'
-import Layout from '../UI/Layout'
-import Spinner from '../UI/Spinner'
+import ErrorComponent from '../UI/Error'
+import LayoutComponent from '../UI/Layout'
+import SpinnerComponent from '../UI/Spinner'
 
 class DetailsPage extends Component {
   componentDidMount() {
@@ -18,13 +18,13 @@ class DetailsPage extends Component {
   }
   
   render() {
-    let content = <Spinner />
+    let content = <SpinnerComponent />
     if (this.props.error) {
-      return <Error />
+      return <ErrorComponent />
     }
     if (!this.props.error && !this.props.loading) {
       content = (
-        <Layout 
+        <LayoutComponent 
           header={<Header repository={this.props.repository}/>} 
           body={<Content repository={this.props.repository} />} />
       )

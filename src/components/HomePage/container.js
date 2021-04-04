@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import * as actions from '../../store/actions'
 import { selectFetchedRepositories, selectLoading, selectError } from '../../store/selectors/fetchRepositoriesSelector'
 
-import Spinner from '../UI/Spinner'
-import Layout from '../UI/Layout'
-import Error from '../UI/Error'
+import SpinnerComponent from '../UI/Spinner'
+import LayoutComponent from '../UI/Layout'
+import ErrorComponent from '../UI/Error'
 import Header from './Header'
 import Content from './Content'
 
@@ -17,13 +17,13 @@ class HomePage extends Component {
   }
 
   render() {
-    let content = <Spinner />
+    let content = <SpinnerComponent />
     if (this.props.error) {
-      return <Error />
+      return <ErrorComponent />
     }
     if (!this.props.error && !this.props.loading) {
       content = (
-        <Layout 
+        <LayoutComponent
           header={<Header />} 
           body={<Content repositories={this.props.repositories} />} />
       )

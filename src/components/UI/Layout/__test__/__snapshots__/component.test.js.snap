@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LayoutComponent /> renders correctly 1`] = `
+<Fragment>
+  <CardHeader>
+    Header
+  </CardHeader>
+  <CardBody>
+    Body
+  </CardBody>
+</Fragment>
+`;

@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 
 import { Card } from 'react-bootstrap'
 
-const Layout = ({ header, body }) => (
+const LayoutComponent = ({ header, body }) => (
   <Fragment>
     <Card.Header>{header}</Card.Header>
     <Card.Body>{body}</Card.Body>
   </Fragment>
 )
 
-Layout.propTypes = {
+LayoutComponent.propTypes = {
   header: PropTypes.node.isRequired,
   body: PropTypes.node.isRequired
 }
 
-export default Layout
+export default LayoutComponent

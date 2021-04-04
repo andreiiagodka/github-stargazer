@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorComponent /> renders correctly 1`] = `
+<Alert
+  className="text-center"
+  closeLabel="Close alert"
+  show={true}
+  transition={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "defaultProps": Object {
+        "appear": false,
+        "in": false,
+        "mountOnEnter": false,
+        "timeout": 300,
+        "unmountOnExit": false,
+      },
+      "render": [Function],
+    }
+  }
+  variant="danger"
+>
+  Something went wrong!
+</Alert>
+`;
