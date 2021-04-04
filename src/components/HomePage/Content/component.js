@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 import { ListGroup } from 'react-bootstrap'
 
-import Repository from './Repository'
-import Blank from './Blank'
+import RepositoryComponent from './Repository'
+import BlankComponent from './Blank'
 
-const Content = ({ repositories }) => {
+const ContentComponent = ({ repositories }) => {
   const fetchedRepositories = repositories.map(repository => {
     return (
-      <Repository
+      <RepositoryComponent
         key={repository.id} 
         id={repository.id}
         name={repository.full_name}
@@ -17,11 +17,11 @@ const Content = ({ repositories }) => {
     )
   })
 
-  return ( repositories.length ? <ListGroup>{fetchedRepositories}</ListGroup> : <Blank /> )
+  return ( repositories.length ? <ListGroup>{fetchedRepositories}</ListGroup> : <BlankComponent /> )
 }
 
-Content.propTypes = {
+ContentComponent.propTypes = {
   repositories: PropTypes.array
 }
 
-export default Content
+export default ContentComponent

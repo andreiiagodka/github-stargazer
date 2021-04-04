@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
-const Header = () => (
+const HeaderComponent = () => (
   <Row>
     <Col md={2}></Col>
     <Col md={8} className='text-center'>
@@ -21,4 +21,4 @@ const Header = () => (
   </Row>
 )
 
-export default Header
+export default HeaderComponent

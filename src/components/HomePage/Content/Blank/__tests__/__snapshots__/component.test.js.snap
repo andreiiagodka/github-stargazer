@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BlankComponent /> renders correctly 1`] = `
+<Row
+  noGutters={false}
+>
+  <Col
+    className="text-center"
+    md={12}
+  >
+    <p
+      className="lead"
+    >
+      No repositories added
+    </p>
+  </Col>
+</Row>
+`;

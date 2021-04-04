@@ -3,7 +3,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Container, Col, Card } from 'react-bootstrap'
 
-import HomePage from './components/HomePage'
+import HomePageContainer from './components/HomePage'
 import AddRepositoryPage from './components/AddRepositoryPage'
 import DetailsPage from './components/DetailsPage'
 
@@ -18,7 +18,7 @@ const App = () => {
           <DetailsPage />
         </Route>
         <Route exact path='/'>
-          <HomePage />
+          <HomePageContainer />
         </Route>
       </Switch>
     </Router>

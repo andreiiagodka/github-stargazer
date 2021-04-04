@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Row, Col, ListGroup } from 'react-bootstrap'
 
-const Repository = ({ id, name, stars }) => (
+const RepositoryComponent = ({ id, name, stars }) => (
   <Link to={'/details/' + id}>
     <ListGroup.Item action>
       <Row>
@@ -15,10 +15,10 @@ const Repository = ({ id, name, stars }) => (
   </Link>
 )
 
-Repository.propTypes = {
+RepositoryComponent.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   stars: PropTypes.number.isRequired
 }
 
-export default Repository
+export default RepositoryComponent

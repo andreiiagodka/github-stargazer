@@ -8,10 +8,10 @@ import { selectFetchedRepositories, selectLoading, selectError } from '../../sto
 import SpinnerComponent from '../UI/Spinner'
 import LayoutComponent from '../UI/Layout'
 import ErrorComponent from '../UI/Error'
-import Header from './Header'
-import Content from './Content'
+import HeaderComponent from './Header'
+import ContentComponent from './Content'
 
-class HomePage extends Component {
+class HomePageContainer extends Component {
   componentDidMount() {
     this.props.fetchRepositories()
   }
@@ -24,8 +24,8 @@ class HomePage extends Component {
     if (!this.props.error && !this.props.loading) {
       content = (
         <LayoutComponent
-          header={<Header />} 
-          body={<Content repositories={this.props.repositories} />} />
+          header={<HeaderComponent />}
+          body={<ContentComponent repositories={this.props.repositories} />} />
       )
     }
 
@@ -33,9 +33,10 @@ class HomePage extends Component {
   }
 }
 
-HomePage.propTypes = {
+HomePageContainer.propTypes = {
   repositories: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   fetchRepositories: PropTypes.func.isRequired
 }
 
@@ -53,4 +54,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+export default connect(mapStateToProps, mapDispatchToProps)(HomePageContainer)

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Row, Col } from 'react-bootstrap'
 
-const Blank = () => (
+const BlankComponent = () => (
   <Row>
     <Col md={12} className='text-center'>
       <p className='lead'>No repositories added</p>
@@ -10,4 +10,4 @@ const Blank = () => (
   </Row>
 )
 
-export default Blank
+export default BlankComponent

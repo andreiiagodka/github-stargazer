@@ -2,12 +2,11 @@ import { createLogic } from 'redux-logic'
 
 import * as actionTypes from '../actionTypes'
 import * as actions from '../actions'
-
 const fetchRepositoriesLogic = createLogic({
   type: actionTypes.FETCH_REPOSITORIES,
   debounce: 500,
   latest: true,
-
+  
   process({ firebase }, dispatch, done) {
     firebase.database().ref('repositories').once('value')
       .then(response => {
