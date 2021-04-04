@@ -1,8 +1,7 @@
 import { createLogic } from 'redux-logic'
 
 import * as actionTypes from '../actionTypes'
-
-const URL = 'https://api.github.com/repos'
+import * as actions from '../actions'
 
 const deleteRepositoryLogic = createLogic({
   type: actionTypes.DELETE_REPOSITORY,
@@ -21,15 +20,15 @@ const deleteRepositoryLogic = createLogic({
     const { id, history } = action.payload
 
     firebase.database().ref(`repositories/${id}`).remove()
-    .then(() => {
-      history.push('/')
-    })
-    .catch(() => {
-
-    })
-    .finally(() => {
-      done()
-    })
+      .then(() => {
+        history.push('/')
+      })
+      .catch(() => {
+        dispatch( actions.failOperation() )
+      })
+      .finally(() => {
+        done()
+      })
   }
 })
 

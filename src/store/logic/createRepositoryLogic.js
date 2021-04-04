@@ -2,8 +2,6 @@ import { createLogic } from 'redux-logic'
 
 import * as actionTypes from '../actionTypes'
 
-const URL = 'https://api.github.com/repos'
-
 const createRepositoryLogic = createLogic({
   type: actionTypes.CREATE_REPOSITORY,
   debounce: 500,
@@ -20,14 +18,14 @@ const createRepositoryLogic = createLogic({
   process({ axios, firebase, action }, dispatch, done) {
     const { name, history, setSubmitting, setFieldError } = action.payload
 
-    const getRepository = axios.get(`${URL}/${name}`)
-    const getRepositoryLanguages = axios.get(`${URL}/${name}/languages`)
+    const getRepository = axios.get(`${name}`)
+    const getRepositoryLanguages = axios.get(`${name}/languages`)
 
     axios
       .all([getRepository, getRepositoryLanguages])
       .then(response => {
         const [ repository, languages ] = response
-
+        
         const attributes = {
           full_name: repository.data.full_name.toLowerCase(),
           stargazers_count: repository.data.stargazers_count,
