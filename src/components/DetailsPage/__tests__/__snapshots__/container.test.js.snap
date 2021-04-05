@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DetailsPageContainer /> renders ErrorComponent 1`] = `
+<Alert
+  className="text-center"
+  closeLabel="Close alert"
+  show={true}
+  transition={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "defaultProps": Object {
+        "appear": false,
+        "in": false,
+        "mountOnEnter": false,
+        "timeout": 300,
+        "unmountOnExit": false,
+      },
+      "render": [Function],
+    }
+  }
+  variant="danger"
+>
+  Something went wrong!
+</Alert>
+`;
+
+exports[`<DetailsPageContainer /> renders LayoutComponent 1`] = `
+<Fragment>
+  <CardHeader>
+    <Connect(withRouter(HeaderContainer))
+      repository={Object {}}
+    />
+  </CardHeader>
+  <CardBody>
+    <ContentComponent
+      repository={Object {}}
+    />
+  </CardBody>
+</Fragment>
+`;
+
+exports[`<DetailsPageContainer /> renders SpinnerComponent 1`] = `
+<div
+  className="Loader"
+>
+  Loading ...
+</div>
+`;

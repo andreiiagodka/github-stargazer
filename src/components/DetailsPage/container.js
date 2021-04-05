@@ -6,13 +6,13 @@ import { withRouter } from 'react-router'
 import * as actions from '../../store/actions'
 import { selectRepository, selectLoading, selectError } from '../../store/selectors/fetchRepositorySelector'
 
-import Header from './Header'
-import Content from './Content'
+import HeaderContainer from './Header'
+import ContentComponent from './Content'
 import ErrorComponent from '../UI/Error'
 import LayoutComponent from '../UI/Layout'
 import SpinnerComponent from '../UI/Spinner'
 
-class DetailsPage extends Component {
+class DetailsPageContainer extends Component {
   componentDidMount() {
     this.props.fetchRepository(this.props.match.params.id)
   }
@@ -25,8 +25,8 @@ class DetailsPage extends Component {
     if (!this.props.error && !this.props.loading) {
       content = (
         <LayoutComponent 
-          header={<Header repository={this.props.repository}/>} 
-          body={<Content repository={this.props.repository} />} />
+          header={<HeaderContainer repository={this.props.repository} />} 
+          body={<ContentComponent repository={this.props.repository} />} />
       )
     }
 
@@ -34,7 +34,7 @@ class DetailsPage extends Component {
   }
 }
 
-DetailsPage.propTypes = {
+DetailsPageContainer.propTypes = {
   repository: PropTypes.object,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
@@ -55,4 +55,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DetailsPage))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(DetailsPageContainer))

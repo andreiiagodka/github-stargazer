@@ -5,7 +5,7 @@ import { Container, Col, Card } from 'react-bootstrap'
 
 import HomePageContainer from './components/HomePage'
 import AddRepositoryPage from './components/AddRepositoryPage'
-import DetailsPage from './components/DetailsPage'
+import DetailsPageContainer from './components/DetailsPage'
 
 const App = () => {
   const routes = (
@@ -15,7 +15,7 @@ const App = () => {
           <AddRepositoryPage />
         </Route>
         <Route exact path='/details/:id'>
-          <DetailsPage />
+          <DetailsPageContainer />
         </Route>
         <Route exact path='/'>
           <HomePageContainer />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Row, Container } from 'react-bootstrap'
 
-const Content = ({ repository }) => {
+const ContentComponent = ({ repository }) => {
   const mappedLanguages = Object.keys(repository.languages).map(key => {
     return <li key={key}>{key}: {repository.languages[key]}</li>
   })
@@ -36,8 +36,8 @@ const Content = ({ repository }) => {
   )
 }
 
-Content.propTypes = {
+ContentComponent.propTypes = {
   repository: PropTypes.object.isRequired
 }
 
-export default Content
+export default ContentComponent

@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import * as actions from '../../../store/actions'
 
-class Header extends Component {
+class HeaderContainer extends Component {
   handleDelete = () => {
     const payload = {
       id: this.props.match.params.id,
@@ -36,7 +36,7 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = {
+HeaderContainer.propTypes = {
   repository: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
 }
@@ -47,4 +47,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(withRouter(Header))
+export default connect(null, mapDispatchToProps)(withRouter(HeaderContainer))

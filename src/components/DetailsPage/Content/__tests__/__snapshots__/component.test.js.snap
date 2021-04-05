@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContentComponent /> renders correctly 1`] = `
+<Fragment>
+  <Container
+    fluid={false}
+  >
+    <Row
+      noGutters={false}
+    >
+      <h3>
+        Stats
+      </h3>
+    </Row>
+    <Row
+      noGutters={false}
+    >
+      <ul
+        style={
+          Object {
+            "listStyleType": "none",
+          }
+        }
+      >
+        <li>
+          Stars: 
+          100
+        </li>
+        <li>
+          Watchers: 
+          200
+        </li>
+        <li>
+          Forks: 
+          300
+        </li>
+      </ul>
+    </Row>
+  </Container>
+  <Container
+    fluid={false}
+  >
+    <Row
+      noGutters={false}
+    >
+      <h3>
+        Languages
+      </h3>
+    </Row>
+    <Row
+      noGutters={false}
+    >
+      <ul
+        style={
+          Object {
+            "listStyleType": "none",
+          }
+        }
+      >
+        <li
+          key="JavaScript"
+        >
+          JavaScript
+          : 
+          400
+        </li>
+      </ul>
+    </Row>
+  </Container>
+</Fragment>
+`;
