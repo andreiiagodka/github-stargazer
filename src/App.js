@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Container, Col, Card } from 'react-bootstrap'
 
 import HomePageContainer from './components/HomePage'
-import AddRepositoryPage from './components/AddRepositoryPage'
+import AddRepositoryPageComponent from './components/AddRepositoryPage'
 import DetailsPageContainer from './components/DetailsPage'
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path='/new'>
-          <AddRepositoryPage />
+          <AddRepositoryPageComponent />
         </Route>
         <Route exact path='/details/:id'>
           <DetailsPageContainer />

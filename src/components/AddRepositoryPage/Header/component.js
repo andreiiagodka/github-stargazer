@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Row, Col } from 'react-bootstrap'
 
-const Header = () => (
+const HeaderComponent = () => (
   <Row>
     <Col md={2}></Col>
     <Col md={8} className='text-center'>
@@ -12,4 +12,4 @@ const Header = () => (
   </Row>
 )
 
-export default Header
+export default HeaderComponent

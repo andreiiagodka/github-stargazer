@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Header from './Header'
-import Content from './Content'
+import HeaderComponent from './Header'
+import ContentComponent from './Content'
 import LayoutComponent from '../UI/Layout'
 
-const AddRepositoryPage = () => {
-  return <LayoutComponent header={<Header />} body={<Content />} />
+const AddRepositoryPageComponent = () => {
+  return <LayoutComponent header={<HeaderComponent />} body={<ContentComponent />} />
 }
 
-export default AddRepositoryPage
+export default AddRepositoryPageComponent
