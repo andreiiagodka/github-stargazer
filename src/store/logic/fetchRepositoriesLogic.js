@@ -21,4 +21,4 @@ const fetchRepositoriesLogic = createLogic({
   }
 })
 
-export default fetchRepositoriesLogic 
+export default fetchRepositoriesLogic

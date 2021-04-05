@@ -32,4 +32,3 @@ export const fetchRepositorySuccess = repository => ({
   type: actionTypes.FETCH_REPOSITORY_SUCCESS,
   repository: repository
 })
- 
