@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContentComponent /> renders BlankComponent 1`] = `<BlankComponent />`;
+
+exports[`<ContentComponent /> renders ListGroup 1`] = `
+<ListGroup>
+  <RepositoryComponent
+    id="id"
+    key="id"
+    name="full_name"
+    stars={1}
+  />
+</ListGroup>
+`;

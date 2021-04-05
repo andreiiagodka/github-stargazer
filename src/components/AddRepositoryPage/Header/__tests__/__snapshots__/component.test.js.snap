@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderComponent /> renders correctly 1`] = `
+<Row
+  noGutters={false}
+>
+  <Col
+    md={2}
+  />
+  <Col
+    className="text-center"
+    md={8}
+  >
+    <h5>
+      Add Repository
+    </h5>
+  </Col>
+  <Col
+    md={2}
+  />
+</Row>
+`;

@@ -1,7 +1,38 @@
-function App() {
+import React from 'react'
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Container, Col, Card } from 'react-bootstrap'
+
+import HomePageContainer from './components/HomePage'
+import AddRepositoryPageComponent from './components/AddRepositoryPage'
+import DetailsPageContainer from './components/DetailsPage'
+
+const App = () => {
+  const routes = (
+    <Router>
+      <Switch>
+        <Route exact path='/new'>
+          <AddRepositoryPageComponent />
+        </Route>
+        <Route exact path='/details/:id'>
+          <DetailsPageContainer />
+        </Route>
+        <Route exact path='/'>
+          <HomePageContainer />
+        </Route>
+      </Switch>
+    </Router>
+  )
+
   return (
-    <h1>Hello world!</h1>
-  );
+    <Container fluid>
+      <Col md={{ span: 6, offset: 3 }}>
+        <Card>
+          {routes}
+        </Card>
+      </Col>
+    </Container>
+  )
 }
 
-export default App;
+export default App

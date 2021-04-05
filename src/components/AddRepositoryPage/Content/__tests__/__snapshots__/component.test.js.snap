@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContentComponent /> renders correctly 1`] = `
+<Container
+  fluid={true}
+>
+  <Col
+    md={
+      Object {
+        "offset": 2,
+        "span": 8,
+      }
+    }
+  >
+    <Connect(withRouter(WithFormik(AddRepositoryFormComponent))) />
+  </Col>
+</Container>
+`;

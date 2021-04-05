@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RepositoryComponent /> renders correctly 1`] = `
+<Link
+  to="/details/id"
+>
+  <ListGroupItem
+    action={true}
+    active={false}
+    disabled={false}
+  >
+    <Row
+      noGutters={false}
+    >
+      <Col
+        md={7}
+      >
+        name
+      </Col>
+      <Col
+        className="text-right"
+        md={5}
+      >
+        1
+      </Col>
+    </Row>
+  </ListGroupItem>
+</Link>
+`;
